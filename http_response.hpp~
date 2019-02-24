@@ -1,0 +1,21 @@
+#ifndef HTTP_RESPONSE_HPP
+#define HTTP_RESPONSE_HPP
+#include <string>
+class HttpResponse {
+public:
+  std::string data_buff;
+  std::string response_line;
+  int status_code;
+  std::string cache_control;
+  std::string date;
+  std::string content_length;
+  std::string conneciton;
+  std::string content_type;
+  std::string server;
+  std::string etag;
+  HttpResponse() : status_code(0){};
+
+  void parse(std::string &buff) {}
+};
+
+#endif
