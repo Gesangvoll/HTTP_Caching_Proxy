@@ -1,3 +1,3 @@
-# Proxy
+# HTTP_Caching_Proxy
+C++ based HTTP Caching Proxy with GET, POST, CONNECT
 
-Our proxy can do the things that a proxy should do.
