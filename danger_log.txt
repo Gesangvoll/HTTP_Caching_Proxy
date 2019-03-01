@@ -1,0 +1,34 @@
+Http Caching Proxy Danger Log
+
+cj162   jc688
+
+Week1:
+
+1, exit unexceptly
+
+For a sevrer, it can’t exit easily even it meet some errors so we choose to  use throw() rather than exit(1) when mistakes happen.
+Especially when we handle the CONNECT, we need to ignore the signal SIGPIPE in order to avoid our machine exiting when client and server use send() and recv() to connect to each others.
+
+
+2, partially receive
+We use a while loop to avoid just receiving partial HTTP Body response from server, which can let our page show entirely.
+
+3, Muitithread failure
+Make sure when we close a socket or free some addrinfo* that the variables are useless at that time.
+Add the pthread lock at some dangerous part.
+
+Week2:
+
+4,  don’t have enough space to receiver from server
+We choose a really big size when we initial the buffer, so we should have the ability to receive the all response from server.
+
+5. Log File
+Our program might write bad format log or miss log in proxy.log
+Just be careful about the format
+
+Week3:
+6. Bad Requests’ parsing
+The failure to parse the request  will led some mistake, we should handle this carefully, if we receive some bad request from client, just ignore it and continue next thread. Also in order to make sure we send the request rightful to the server or send the response in a correct format to client, we should make sure every time the size of info we want to send is just equal to the info, or the function send() can’t work well.
+
+7, unsuitable container for request and info
+Using vector is really dangerous to do that, because sizeof(vector) is not the size of the info in the vector. So we use the char* as much as we can.

@@ -1,0 +1,37 @@
+Test Cases:
+
+1. GET 
+
+Enter http://people.duke.edu/~bmr23/ece568/class.html in browser (after set the proxy setting in web browser)
+
+We will see the page returned by original server.
+
+2. GET
+
+Enter http://www.cplusplus.com/ in browser.
+
+We will see the page returned by original server, which is correct.
+
+3. CONNECT
+
+Enter https://www.google.com/ in browser (after set the proxy setting in web browser)
+
+We will see the page of Google which is correct. Visiting Google will generate https connection and our proxy recognize it.
+
+4. CONNECT
+
+Enter https://www.youtube.com/ in browser (after set the proxy setting in web browser)
+
+We will see the homepage of youtube. Then open a video, the video would show.
+
+5. Multi Thread
+
+Enter two consecutive urls in browser and then we should be able to get respective result pages of these two websites, which are correct according to the requirements.
+
+6. POST
+
+Open http://www.csm-testcenter.org/test?do=show&subdo=common&test=file_upload and then upload a small size of file to it, then submit. You will see the successful result of the POST method.
+
+7. Log
+
+After running the proxy, play with the browser for a while and then open proxy.log, the logs should display.

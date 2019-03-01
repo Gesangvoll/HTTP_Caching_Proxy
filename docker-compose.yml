@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  proxy:
+    build: ./httpproxy
+    command: ./proxyserver 12345
+    volumes:
+      - ./httpproxy:/src
+      - ./logs:/var/log/erss
+    expose:
+      - "12345"
+    ports:
+      - "12345:12345"
